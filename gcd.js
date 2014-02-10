@@ -13,16 +13,21 @@ $(document).ready(function(){
 			return a;
 		}	
 		else if (a < b) {
-			$('#steps').append("<br>"+ a+" divides "+b+" "+ Math.floor(b/a)+" times with remainder "+Math.floor(b%a) +".");
+			$('#steps').append("<br>"+ a+" divides "+b+" "+ ~~(b/a)+" times with remainder "+ ~~(b%a) +".");
 			return gcd(a, b%a);
 		}
-		$('#steps').append("<br>"+ b+" divides "+a+" "+ Math.floor(a/b)+" times with remainder "+Math.floor(a%b) +".");
+		$('#steps').append("<br>"+ b+" divides "+a+" "+ ~~(a/b)+" times with remainder "+ ~~(a%b) +".");
 		return gcd(a%b, b);
 	}
 	$('#calc_GCD').on("click",function(){
 		$('#steps').text("");
 		var a =$('[placeholder="a"]').val();
 		var b =$('[placeholder="b"]').val();
-		var tmp = gcd(a,b);
+		if(isNaN(a) || isNaN(b) || a=="" || b=="" || a<0 || b <0) {
+			alert("Please only enter positive integers.");
+		}
+		else {
+			gcd(a,b);
+		}
 	});
 });
