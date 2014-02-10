@@ -1,4 +1,4 @@
 gcd
 ===
 
-Demonstrates Greatest Common Factor via Euclidean Algorithm implemented in JavaScript
+Demonstrates Greatest Common Divisor via Euclidean Algorithm implemented in JavaScript
